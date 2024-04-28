@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+body {
+    font-family: 'lilita one';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    /* ...existing styles... */
+    
+    font-family: 'lilita one',Arial, sans-serif; /* Change the font */
+    font-size: 20px; /* Increase the font size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a shadow effect to the text */
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    background-color: white;
+    margin: 15px;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+
+.rainbow {
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    color: white;
+}
+
+.erase {
+    background: url('resources/eraser.png') no-repeat center center; /* Set the background image */
+    border: none;
+    color: white;
+    background-size: cover; /* Ensure the image covers the entire button */
+    padding: 15px 32px;
+    }
+    
+    
