@@ -2,11 +2,26 @@
 const grid = document.querySelector(".grid");
 const change = document.querySelector(".change");
 const erase = document.querySelector(".erase");
-const rainbow = document.querySelector(".rainbow");
-const black = document.querySelector(".black");
+const blackButton = document.querySelector(".black-button");
+const rainbowButton = document.querySelector(".rainbow-button");
 
 // initialize size
 let size = 30;
+
+// initialize color
+let colorBlack = true;
+let colorRainbow = false;
+
+blackButton.addEventListener("click", () => {
+  colorBlack = colorRainbow = false;
+  colorBlack = true;
+  pickColor();
+});
+rainbowButton.addEventListener("click", () => {
+  colorBlack = colorRainbow = false;
+  colorRainbow = true;
+  pickColor();
+});
 
 // set a click listener for size change button
 change.addEventListener("click", () => {
@@ -14,6 +29,31 @@ change.addEventListener("click", () => {
   createGrid(size);
 });
 
+// pick color func
+
+function pickColor() {
+  const cells = document.querySelectorAll(".cell");
+
+  // cells hover behave
+
+  cells.forEach((one) => {
+    one.addEventListener("mouseover", () => {
+      one.classList.remove("rainbow");
+      one.classList.add("black");
+    });
+  });
+
+  if (colorRainbow) {
+    {
+      cells.forEach((one) => {
+        one.addEventListener("mouseover", () => {
+          one.classList.remove("black");
+          one.classList.add("rainbow");
+        });
+      });
+    }
+  }
+}
 function createGrid(size) {
   grid.innerHTML = "";
 
@@ -28,14 +68,7 @@ function createGrid(size) {
     grid.appendChild(cell);
   }
 
-  const cells = document.querySelectorAll(".cell");
-
-  // cells hover behave
-  cells.forEach((one) => {
-    one.addEventListener("mouseover", () => {
-      one.classList.add("black");
-    });
-  });
+  pickColor();
 }
 
 createGrid(size);
