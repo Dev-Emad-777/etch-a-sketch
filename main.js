@@ -12,11 +12,13 @@ let size = 30;
 let colorBlack = true;
 let colorRainbow = false;
 
+// set a click listener for black button
 blackButton.addEventListener("click", () => {
-  colorBlack = colorRainbow = false;
-  colorBlack = true;
-  pickColor();
+    colorBlack = colorRainbow = false;
+    colorBlack = true;
+    pickColor();
 });
+// set a click listener for rainbow button
 rainbowButton.addEventListener("click", () => {
   colorBlack = colorRainbow = false;
   colorRainbow = true;
@@ -29,6 +31,15 @@ change.addEventListener("click", () => {
   createGrid(size);
 });
 
+// set a click listener for erase button
+erase.addEventListener("click", () => {
+  const cells = document.querySelectorAll(".cell");
+
+  cells.forEach((one) => {
+    one.classList.remove("black");
+    one.classList.remove("rainbow");
+  });
+});
 // pick color func
 
 function pickColor() {
