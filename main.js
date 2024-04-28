@@ -1,6 +1,18 @@
+// select page elements
 const grid = document.querySelector(".grid");
+const change = document.querySelector(".change");
+const erase = document.querySelector(".erase");
+const rainbow = document.querySelector(".rainbow");
+const black = document.querySelector(".black");
 
-let defaultSize = 10;
+// initialize size
+let size = 30;
+
+// set a click listener for size change button
+change.addEventListener("click", () => {
+  size = +prompt("chose size (1-70)");
+  createGrid(size);
+});
 
 function createGrid(size) {
   grid.innerHTML = "";
@@ -15,6 +27,15 @@ function createGrid(size) {
 
     grid.appendChild(cell);
   }
+
+  const cells = document.querySelectorAll(".cell");
+
+  // cells hover behave
+  cells.forEach((one) => {
+    one.addEventListener("mouseover", () => {
+      one.classList.add("black");
+    });
+  });
 }
 
-createGrid(defaultSize);
+createGrid(size);
