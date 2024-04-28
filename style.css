@@ -5,6 +5,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgb(108, 172, 212);
 }
 
 button {
@@ -36,5 +37,23 @@ button {
     background-size: cover; /* Ensure the image covers the entire button */
     padding: 15px 32px;
     }
+
+.grid {
+    background-color: white;
+    border: 5px solid black ;
+    display: flex;
+    flex-wrap: wrap;
+    width: 560px;
+    height: 560px;
+}
+
+.cell {
+        width: 100%; /* Adjust as needed */
+        height: 100%; /* Adjust as needed */
+        box-sizing: border-box;
+
+        border: 1px solid #dce0e8;
+    }
+
     
     
