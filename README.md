@@ -1,1 +1,1 @@
-# sketch-board
+# Etch A Sketch
