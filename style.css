@@ -9,11 +9,9 @@ body {
 }
 
 button {
-  /* ...existing styles... */
-
-  font-family: "lilita one", Arial, sans-serif; /* Change the font */
-  font-size: 20px; /* Increase the font size */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a shadow effect to the text */
+  font-family: "lilita one", Arial, sans-serif;
+  font-size: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   text-decoration: none;
   text-align: center;
@@ -39,10 +37,10 @@ button {
 }
 
 .erase {
-  background: url("resources/eraser.png") no-repeat center center; /* Set the background image */
+  background: url("resources/eraser.png") no-repeat center center;
   border: none;
   color: white;
-  background-size: cover; /* Ensure the image covers the entire button */
+  background-size: cover;
   padding: 15px 32px;
 }
 
@@ -59,23 +57,4 @@ button {
   width: 100%; /* Adjust as needed */
   height: 100%; /* Adjust as needed */
   box-sizing: border-box;
-
-  border: 1px solid #dce0e8;
-}
-
-.black {
-    background-color: black;
-}
-
-.rainbow {
-    background: linear-gradient(
-        to right,
-        red,
-        orange,
-        yellow,
-        green,
-        blue,
-        indigo,
-        violet
-      );
 }
