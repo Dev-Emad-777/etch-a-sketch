@@ -5,8 +5,18 @@ const erase = document.querySelector(".erase");
 const blackButton = document.querySelector(".black-button");
 const rainbowButton = document.querySelector(".rainbow-button");
 
-// initialize size
 let size = 30;
+
+// set a click listener for size change button
+change.addEventListener("click", () => {
+  do {
+    size = parseInt(prompt("Choose size (10-50)", 30), 10);
+    if (isNaN(size) || size < 10 || size > 50) {
+      size = 30; // Default size
+    }
+  } while (size < 10 || size > 50);
+  createGrid(size);
+});
 
 // initialize color
 let colorBlack = true;
@@ -14,9 +24,9 @@ let colorRainbow = false;
 
 // set a click listener for black button
 blackButton.addEventListener("click", () => {
-    colorBlack = colorRainbow = false;
-    colorBlack = true;
-    pickColor();
+  colorBlack = colorRainbow = false;
+  colorBlack = true;
+  pickColor();
 });
 // set a click listener for rainbow button
 rainbowButton.addEventListener("click", () => {
@@ -25,23 +35,43 @@ rainbowButton.addEventListener("click", () => {
   pickColor();
 });
 
-// set a click listener for size change button
-change.addEventListener("click", () => {
-  size = +prompt("chose size (1-70)");
-  createGrid(size);
-});
-
 // set a click listener for erase button
 erase.addEventListener("click", () => {
   const cells = document.querySelectorAll(".cell");
 
   cells.forEach((one) => {
-    one.classList.remove("black");
-    one.classList.remove("rainbow");
+    one.style.backgroundColor = "white";
   });
 });
-// pick color func
 
+// Define a larger color palette
+const colors = [
+  "#FF0000", // Red
+  "#FF4500", // OrangeRed
+  "#FFA500", // Orange
+  "#FFD700", // Gold
+  "#FFFF00", // Yellow
+  "#ADFF2F", // GreenYellow
+  "#00FF00", // Lime
+  "#32CD32", // LimeGreen
+  "#008000", // Green
+  "#20B2AA", // LightSeaGreen
+  "#00FFFF", // Aqua
+  "#00BFFF", // DeepSkyBlue
+  "#1E90FF", // DodgerBlue
+  "#0000FF", // Blue
+  "#8A2BE2", // BlueViolet
+  "#4B0082", // Indigo
+  "#9400D3", // DarkViolet
+  "#8B00FF", // Violet
+];
+
+function getRandomColor() {
+  const randomNumber = Math.floor(Math.random() * colors.length);
+  return colors[randomNumber];
+}
+
+// pick color func
 function pickColor() {
   const cells = document.querySelectorAll(".cell");
 
@@ -49,8 +79,7 @@ function pickColor() {
 
   cells.forEach((one) => {
     one.addEventListener("mouseover", () => {
-      one.classList.remove("rainbow");
-      one.classList.add("black");
+      one.style.backgroundColor = "black";
     });
   });
 
@@ -58,8 +87,7 @@ function pickColor() {
     {
       cells.forEach((one) => {
         one.addEventListener("mouseover", () => {
-          one.classList.remove("black");
-          one.classList.add("rainbow");
+          one.style.backgroundColor = `${getRandomColor()}`;
         });
       });
     }
